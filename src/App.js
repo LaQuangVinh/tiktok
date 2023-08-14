@@ -1,18 +1,19 @@
-import Video from "./content";
-import { useRef } from "react";
-function App() {
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { publicPages } from './routes'
 
-  const video = useRef()
-  
+function App() {
   return (
-    <div style={{
-      textAlign: 'center',
-    }}>
-      <Video ref={video} />
-      <button onClick={() => video.current.play()}>Play</button>
-      <button onClick={() => video.current.pause()}>Pause</button>
-    </div>
-  );
+    <BrowserRouter>
+      <div className="App">
+        <Routes>
+          {publicPages.map((route, index) => {
+            const Page = route.component
+            return <Route key={index} path={route.path} element={<Page />} />
+          })}
+        </Routes>
+      </div>
+    </BrowserRouter>
+  )
 }
 
-export default App;
+export default App
