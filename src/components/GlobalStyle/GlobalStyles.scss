@@ -4,7 +4,8 @@
 
 :root {
   --primary: #fe2c55;
-  --heigh-default-layout: 80px;
+
+  --heigh-default-layout: 60px;
 }
 
 * {
@@ -23,3 +24,13 @@ body {
   line-height: 1.5;
   text-rendering: optimizeSpeed;
 }
+
+// .row-xxl-margin {
+//   margin-left: -8px;
+//   margin-right: -8px;
+// }
+
+// .col-xxl-padding {
+//   padding-left: 4px;
+//   padding-right: 4px;
+// }
