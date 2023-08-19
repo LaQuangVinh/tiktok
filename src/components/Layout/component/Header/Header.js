@@ -1,6 +1,7 @@
 import style from './Header.module.scss'
 import clsx from 'clsx'
 import { logo } from '../../../../assets/imgs'
+import Tippy from '@tippyjs/react/headless'
 
 import { faXmarkCircle } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
