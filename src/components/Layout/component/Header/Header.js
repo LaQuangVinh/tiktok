@@ -5,12 +5,17 @@ import Tippy from '@tippyjs/react/headless'
 import Popover from '../../../Popover'
 import AccountItem from '../../../AccountItem'
 import { useState } from 'react'
+import Menu from '../../../Menu'
 
 import { faXmarkCircle } from '@fortawesome/free-solid-svg-icons'
+import { faEllipsisVertical } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircleNotch } from '@fortawesome/free-solid-svg-icons'
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
 import Button from '../../../Button'
+import { faLanguage } from '@fortawesome/free-solid-svg-icons'
+import { faQuestionCircle } from '@fortawesome/free-regular-svg-icons'
+import { faKeyboard } from '@fortawesome/free-solid-svg-icons'
 
 function Header() {
   const classWrap = clsx(style.wrap)
@@ -22,8 +27,25 @@ function Header() {
   const classBtnSearch = clsx(style.btnSearch)
   const classSearchResult = clsx(style.searchResult)
   const classHeadingSearch = clsx(style.headingSearch)
+  const classBtnMore = clsx(style.btnMore)
 
   const [searchResult, setsearchResult] = useState([])
+
+  const menuAction = [
+    {
+      icon: <FontAwesomeIcon icon={faLanguage} />,
+      title: 'English'
+    },
+    {
+      icon: <FontAwesomeIcon icon={faQuestionCircle} />,
+      title: 'Feedback cho t',
+      to: '/feedback'
+    },
+    {
+      icon: <FontAwesomeIcon icon={faKeyboard} />,
+      title: 'Keyboard shortcuts'
+    }
+  ]
 
   return (
     <header className={classWrap}>
@@ -57,6 +79,11 @@ function Header() {
         <div className={classAction}>
           <Button text>Upload</Button>
           <Button primary>Log in</Button>
+          <Menu items={menuAction}>
+            <button className={classBtnMore}>
+              <FontAwesomeIcon icon={faEllipsisVertical} />
+            </button>
+          </Menu>
         </div>
       </div>
     </header>
